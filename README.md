@@ -2,7 +2,6 @@
 **High-performance execution and automation core for the [Growthy Tools](https://growthytools.com) ecosystem.**
 
 ---
-
 ## Overview
 This repository hosts the **Growthy Tools Automation Engine**, a specialized framework designed for high-efficiency digital operations. It serves as the backend infrastructure for automating complex workflows, including SEO data processing, market execution, and AI-driven content pipelines.
 
