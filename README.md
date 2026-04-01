@@ -1,5 +1,5 @@
 # Growthy Tools Automation Engine
-**High-performance execution and automation core for the [Growthy Tools](https://growthytools.com) ecosystem.**
+**High-performance execution and automation core for the [Growthy Tools](https://www.growthytools.com) ecosystem.**
 
 ---
 ## Overview
