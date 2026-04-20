@@ -1,0 +1,57 @@
+.gt-template-card,
+.gt-feature-card,
+.gt-benefit-card,
+.gt-testimonial-grid blockquote,
+.gt-faq-list details,
+.gt-buybox,
+.gt-empty-state {
+  border-radius: 16px;
+  border: 1px solid rgba(0,229,255,.24);
+  background: rgba(2,20,30,.78);
+}
+html[data-theme="light"] .gt-template-card,
+html[data-theme="light"] .gt-feature-card,
+html[data-theme="light"] .gt-benefit-card,
+html[data-theme="light"] .gt-testimonial-grid blockquote,
+html[data-theme="light"] .gt-faq-list details,
+html[data-theme="light"] .gt-buybox,
+html[data-theme="light"] .gt-empty-state { background:#fff; border-color:#dbeafe; }
+.gt-template-card { overflow:hidden; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.gt-template-card:hover { transform: translateY(-4px); border-color: rgba(0,229,255,.65); box-shadow: 0 20px 35px rgba(0,229,255,.15); }
+.gt-template-card__thumb { display:block; aspect-ratio: 5 / 4; overflow:hidden; }
+.gt-template-card__thumb img { width:100%; height:100%; object-fit:cover; }
+.gt-template-card__content { padding:.7rem; display:grid; gap:.42rem; }
+.gt-template-card__category,
+.gt-chip,
+.gt-badge { background: rgba(0,229,255,.13); color:#8ff6ff; border-radius:999px; font-size:.72rem; padding:.22rem .55rem; display:inline-flex; }
+html[data-theme="light"] .gt-template-card__category,
+html[data-theme="light"] .gt-chip,
+html[data-theme="light"] .gt-badge { color:#075985; background:#dbeafe; }
+.gt-template-card h3 { font-size:.97rem; }
+.gt-template-card p { margin:0; font-size:.83rem; color:#9ed2d8; }
+html[data-theme="light"] .gt-template-card p { color:#475569; }
+.gt-template-card__meta { display:grid; gap:.32rem; }
+.gt-template-card__micro { font-size:.72rem; color:#8bb7be; }
+.gt-template-card__meta strong { color:#7ff9ff; }
+.gt-template-card__actions { display:flex; gap:.35rem; flex-wrap:wrap; }
+.gt-template-card__actions .gt-button { font-size:.76rem; padding:.46rem .62rem; }
+.gt-feature-grid,
+.gt-benefits-grid,
+.gt-testimonial-grid,
+.gt-gallery-grid { display:grid; gap:.72rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.gt-feature-card,.gt-benefit-card { padding:.9rem; }
+.gt-faq-list details { margin-bottom:.5rem; padding:.8rem .9rem; }
+.gt-buybox { padding: .95rem; }
+.gt-license-option { display:flex; gap:.5rem; align-items:center; border:1px solid rgba(0,229,255,.25); border-radius:12px; padding:.46rem .56rem; margin-bottom:.45rem; }
+.gt-license-option:has(input:checked) { border-color: rgba(0,229,255,.7); background: rgba(0,229,255,.14); }
+.gt-buybox-price strong { display:block; color:#7ff9ff; font-size:1.2rem; }
+.gt-buybox-price small { color:#fda4af; text-decoration: line-through; }
+.gt-note { color:#9ac6cc; font-size:.84rem; }
+html[data-theme="light"] .gt-note { color:#475569; }
+.gt-trust-list { margin:.7rem 0 0; list-style:none; padding:0; display:grid; gap:.42rem; }
+.gt-trust-list li { position:relative; padding-inline-start:1.15rem; line-height:1.8; }
+.gt-trust-list li::before { content:'✓'; position:absolute; inset-inline-start:0; color:var(--gt-primary); font-weight:700; }
+.gt-final-cta { background: var(--gt-gradient); border-radius: 18px; color:#fff; text-align:center; padding:1.6rem 1rem; }
+@media (max-width:560px){
+  .gt-template-card__actions .gt-button { flex:1 1 auto; }
+}
