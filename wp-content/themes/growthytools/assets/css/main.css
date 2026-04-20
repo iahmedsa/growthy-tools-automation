@@ -1,0 +1,96 @@
+:root {
+  --gt-primary: #0ea5a4;
+  --gt-accent: #f59e0b;
+  --gt-neutral: #0b1020;
+  --gt-gradient: linear-gradient(135deg,#061327 0%,#0f3d45 55%,#1b7c7a 100%);
+  --gt-scale: 1;
+  --gt-radius: 12px;
+  --gt-card-intensity: 1;
+  --gt-heading: "Cairo",sans-serif;
+  --gt-body: "Tajawal",sans-serif;
+}
+html { direction: rtl; font-size: calc(16px * var(--gt-scale)); }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: var(--gt-body);
+  background: radial-gradient(circle at top right, #0f172a 0%, var(--gt-neutral) 40%, #020617 100%);
+  color: #e2e8f0;
+  line-height: 1.75;
+}
+html[data-theme="light"] body {
+  background: linear-gradient(180deg,#f8fafc,#eef2ff);
+  color: #0f172a;
+}
+h1,h2,h3,h4 { font-family: var(--gt-heading); line-height: 1.3; margin: 0; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+:focus-visible { outline: 3px solid var(--gt-accent); outline-offset: 2px; }
+.gt-container { width: min(1180px, 92vw); margin: 0 auto; }
+.gt-section { padding: 2.75rem 0; }
+.gt-site-main { overflow: clip; }
+.gt-site-header {
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, #030712 85%, transparent);
+  border-bottom: 1px solid rgba(148,163,184,.2);
+  box-shadow: 0 8px 30px rgba(2,6,23,.18);
+}
+html[data-theme="light"] .gt-site-header { background: rgba(255,255,255,.85); border-bottom-color: #dbeafe; }
+.gt-header-inner { min-height: 76px; display:flex; align-items:center; gap:.9rem; }
+.gt-main-nav { margin-inline-start: auto; }
+.gt-nav-list { display:flex; list-style:none; gap:.8rem; padding:0; margin:0; }
+.gt-theme-toggle {
+  border: 1px solid rgba(148,163,184,.35); background: rgba(15,23,42,.55); color:#fff;
+  width: 40px; height: 40px; border-radius: 999px; cursor: pointer;
+}
+html[data-theme="light"] .gt-theme-toggle { background: #fff; color:#0f172a; }
+.gt-button {
+  display:inline-flex; align-items:center; justify-content:center;
+  font-weight:700; padding:.62rem .95rem; border-radius: var(--gt-radius);
+  border:1px solid transparent; transition: .22s ease; font-size:.9rem;
+}
+.gt-button--primary { background: var(--gt-gradient); color:#fff; box-shadow: 0 14px 30px rgba(15,23,42,.25); }
+.gt-button--primary:hover { transform: translateY(-2px); }
+.gt-button--ghost { border-color: rgba(148,163,184,.45); background: rgba(15,23,42,.35); color:#e2e8f0; }
+html[data-theme="light"] .gt-button--ghost { background:#fff; color:#0f172a; }
+.gt-button--link { color: var(--gt-accent); }
+.gt-button--block { width: 100%; }
+.gt-home-hero {
+  padding-top: 3.25rem;
+}
+.gt-home-hero__grid { display:grid; grid-template-columns: 1fr; gap: 1.2rem; }
+.gt-hero-panel {
+  border-radius: 22px; padding: 1.2rem;
+  border:1px solid rgba(148,163,184,.25);
+  background: linear-gradient(160deg, rgba(14,165,164,.2), rgba(245,158,11,.08));
+  position: relative;
+}
+.gt-hero-panel::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  border: 1px solid color-mix(in srgb, var(--gt-accent) 35%, transparent);
+}
+.gt-site-footer { border-top:1px solid rgba(148,163,184,.2); padding: 2rem 0; }
+.gt-footer-nav { list-style:none; display:flex; gap:.8rem; margin:0; padding:0; flex-wrap:wrap; }
+.gt-template-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,280px)); justify-content:center; gap:.85rem; }
+.gt-single-layout { display:grid; grid-template-columns:1fr; gap:1rem; align-items:start; }
+.gt-buybox { position: sticky; top: 96px; }
+.gt-overline { letter-spacing:.15em; text-transform:uppercase; color:var(--gt-accent); font-size:.75rem; margin-bottom:.5rem; }
+.gt-actions { display:flex; gap:.6rem; flex-wrap:wrap; margin-top: 1rem; align-items:center; }
+.gt-actions--micro { margin-top: .7rem; }
+.gt-actions--micro .gt-chip { font-size: .68rem; opacity: .95; }
+.gt-breadcrumbs ol { list-style:none; display:flex; gap:.3rem; margin:0 0 1rem; padding:0; color:#94a3b8; font-size:.84rem; }
+.gt-breadcrumbs li:not(:last-child)::after { content:'/'; margin-inline-start:.3rem; }
+@media (min-width: 780px) {
+  .gt-section { padding: 3rem 0; }
+  .gt-template-grid { grid-template-columns: repeat(auto-fit,minmax(230px,270px)); }
+}
+@media (min-width: 1024px) {
+  .gt-home-hero__grid { grid-template-columns: 1.15fr .85fr; }
+  .gt-template-grid { grid-template-columns: repeat(auto-fit,minmax(235px,260px)); }
+  .gt-single-layout { grid-template-columns: minmax(0,2fr) minmax(290px,1fr); gap:1.2rem; }
+}
