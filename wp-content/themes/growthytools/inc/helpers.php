@@ -1,0 +1,87 @@
+<?php
+/**
+ * Theme helper functions.
+ *
+ * @package GrowthyTools
+ */
+
+if (! defined('ABSPATH')) {
+    exit;
+}
+
+function growthytools_get_meta(int $post_id, string $key, $default = '')
+{
+    $value = get_post_meta($post_id, $key, true);
+    return '' !== $value && null !== $value ? $value : $default;
+}
+
+function growthytools_format_price(string $price): string
+{
+    if ('' === $price) {
+        return __('تواصل معنا', 'growthytools');
+    }
+
+    return sprintf(__('ابتداءً من %s', 'growthytools'), esc_html($price));
+}
+
+function growthytools_get_licenses(int $post_id): array
+{
+    $licenses = growthytools_get_meta($post_id, '_gt_licenses', []);
+    if (! is_array($licenses)) {
+        return [];
+    }
+
+    return array_values(array_filter($licenses, static function ($item): bool {
+        return is_array($item) && ! empty($item['name']) && ! empty($item['checkout_url']);
+    }));
+}
+
+function growthytools_get_repeater(int $post_id, string $meta_key): array
+{
+    $items = growthytools_get_meta($post_id, $meta_key, []);
+    return is_array($items) ? $items : [];
+}
+
+function growthytools_get_breadcrumbs(): array
+{
+    $crumbs = [
+        [
+            'label' => __('الرئيسية', 'growthytools'),
+            'url'   => home_url('/'),
+        ],
+    ];
+
+    if (is_post_type_archive('gt_template')) {
+        $crumbs[] = [
+            'label' => __('القوالب', 'growthytools'),
+            'url'   => get_post_type_archive_link('gt_template'),
+        ];
+    }
+
+    if (is_singular('gt_template')) {
+        $crumbs[] = [
+            'label' => __('القوالب', 'growthytools'),
+            'url'   => get_post_type_archive_link('gt_template'),
+        ];
+        $crumbs[] = [
+            'label' => get_the_title(),
+            'url'   => get_permalink(),
+        ];
+    }
+
+    return $crumbs;
+}
+
+function growthytools_render_breadcrumbs(): void
+{
+    $crumbs = growthytools_get_breadcrumbs();
+    if (count($crumbs) < 2) {
+        return;
+    }
+
+    echo '<nav class="gt-breadcrumbs" aria-label="' . esc_attr__('مسار التنقل', 'growthytools') . '"><ol>';
+    foreach ($crumbs as $crumb) {
+        echo '<li><a href="' . esc_url($crumb['url']) . '">' . esc_html($crumb['label']) . '</a></li>';
+    }
+    echo '</ol></nav>';
+}
