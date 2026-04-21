@@ -1,29 +1,28 @@
 <?php
 /**
- * Registers post meta fields.
+ * Registers post meta fields for all BAYAN CPTs.
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 add_action(
 	'init',
 	static function () {
-		$fields_by_type = [
-			'service' => [ 'service_subtitle', 'service_short_description', 'service_primary_cta_label', 'service_primary_cta_url' ],
-			'case_study' => [ 'case_client_name', 'case_industry', 'case_results_summary', 'case_cta_label', 'case_cta_url' ],
-			'industry' => [ 'industry_short_description', 'industry_intro' ],
-			'testimonial' => [ 'testimonial_quote', 'testimonial_client_name', 'testimonial_rating' ],
-			'team_member' => [ 'team_member_name', 'team_member_role', 'team_member_linkedin' ],
-		];
-
-		foreach ( $fields_by_type as $post_type => $fields ) {
-			foreach ( $fields as $field ) {
+		foreach ( bayan_core_cpt_fields() as $post_type => $fields ) {
+			foreach ( $fields as $field_key => $field ) {
+				$meta_type = in_array( $field['type'], [ 'number' ], true ) ? 'integer' : 'string';
 				register_post_meta(
 					$post_type,
-					$field,
+					$field_key,
 					[
 						'single'            => true,
-						'type'              => 'string',
+						'type'              => $meta_type,
 						'show_in_rest'      => true,
-						'sanitize_callback' => 'sanitize_text_field',
+						'sanitize_callback' => static function ( $value ) use ( $field ) {
+							return bayan_core_sanitize_by_type( $field['type'], $value );
+						},
 					]
 				);
 			}

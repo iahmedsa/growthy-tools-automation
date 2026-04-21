@@ -1,1 +1,15 @@
-input, textarea, select { inline-size: 100%; }
+label {
+  display: block;
+  font-weight: 600;
+  margin-block-end: .35rem;
+}
+
+input,
+textarea,
+select {
+  inline-size: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding-block: .6rem;
+  padding-inline: .75rem;
+}

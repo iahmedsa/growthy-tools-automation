@@ -1,1 +1,15 @@
-.bayan-core-settings { max-width: 860px; }
+.bayan-core-settings {
+  max-width: 1000px;
+}
+
+.bayan-core-settings .form-table th {
+  width: 260px;
+}
+
+.bayan-core-settings input[type='text'],
+.bayan-core-settings input[type='url'],
+.bayan-core-settings input[type='email'],
+.bayan-core-settings textarea {
+  width: 100%;
+  max-width: 620px;
+}
