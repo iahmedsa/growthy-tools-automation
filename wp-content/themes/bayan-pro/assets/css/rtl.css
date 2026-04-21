@@ -1,0 +1,12 @@
+html[dir="rtl"] body {
+  direction: rtl;
+}
+
+html[dir="rtl"] .bayan-icon-arrow,
+html[dir="rtl"] .wp-block-navigation .wp-block-navigation-item__label::after {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .wp-block-buttons {
+  justify-content: flex-start;
+}
