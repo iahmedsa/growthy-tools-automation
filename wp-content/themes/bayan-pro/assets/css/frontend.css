@@ -2,22 +2,61 @@
   --bayan-radius-sm: 8px;
   --bayan-radius-md: 16px;
   --bayan-radius-lg: 24px;
-  --bayan-shadow-soft: 0 8px 20px rgba(15, 23, 42, 0.06);
+  --bayan-shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --bayan-text: #0f172a;
+  --bayan-muted: #475569;
+  --bayan-bg: #ffffff;
+  --bayan-bg-soft: #f8fafc;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
+  color: var(--bayan-text);
+  background: var(--bayan-bg);
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+p { color: var(--bayan-muted); }
+
+.wp-site-blocks > header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.92);
+  border-block-end: 1px solid #e2e8f0;
+}
+
+.wp-block-navigation .wp-block-navigation-item__content {
+  font-weight: 600;
+}
+
+.wp-block-group.has-muted-background-color {
+  border: 1px solid #e2e8f0;
 }
 
 .bayan-card {
-  padding-block: 1rem;
-  padding-inline: 1rem;
-  border-radius: var(--bayan-radius-md);
   box-shadow: var(--bayan-shadow-soft);
+}
+
+.wp-block-cover.is-light {
+  border-radius: var(--bayan-radius-lg);
+  overflow: hidden;
+}
+
+.wp-block-button__link {
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.wp-block-button__link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(11, 95, 255, 0.2);
 }
 
 .wp-block-button__link:focus-visible,

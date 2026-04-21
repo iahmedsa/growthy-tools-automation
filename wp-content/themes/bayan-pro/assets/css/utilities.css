@@ -1,1 +1,49 @@
-.bayan-stack > * + * { margin-block-start: 1rem; }
+.bayan-section {
+  padding-block: clamp(2.5rem, 4vw, 5rem);
+}
+
+.bayan-container {
+  width: min(1200px, 92vw);
+  margin-inline: auto;
+}
+
+.bayan-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.bayan-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.bayan-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.bayan-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.bayan-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.25rem;
+}
+
+.bayan-eyebrow {
+  display: inline-block;
+  padding: .35rem .65rem;
+  border-radius: 999px;
+  background: #e0e7ff;
+  color: #1e3a8a;
+  font-size: .82rem;
+  font-weight: 700;
+}
+
+.bayan-metric {
+  text-align: center;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+@media (max-width: 900px) {
+  .bayan-grid-2,
+  .bayan-grid-3,
+  .bayan-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
